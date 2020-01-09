@@ -8,8 +8,8 @@ const Employee  = require('../js/employee');
     //get  id
 
     //test methods
-        //getName
-        //getTitle
-        //getId
-        //getEmail
-        //getRole
+        //getName()
+        //getTitle()
+        //getId()
+        //getEmail()
+        //getRole()
