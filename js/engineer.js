@@ -2,7 +2,7 @@ const Employee = require('./employee');
 
 class Engineer extends Employee {
     //constructor that takes in github username
-    constructor(github){
+    constructor(name, title, email, id, github){
         // as super that passes is all the values from Employee name, title, email, id
         super(name, title, email, id);
         this.github = github
@@ -12,7 +12,7 @@ class Engineer extends Employee {
         return this.github;
     }
     getRole(){
-        //overridden to return "engineer"
+        return "Engineer"
     }
 
 };

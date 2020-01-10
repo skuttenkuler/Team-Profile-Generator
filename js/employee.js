@@ -1,11 +1,11 @@
-var id;
+var IDnum = 1;
 class Employee {
     //constructor with name, title, and email
     constructor(name,title,email) {
         this.name = name;
         this.title = title;
         this.email = email;
-        this.id = id++ 
+        this.id = IDnum++;
         
     }
     //methods return each value
@@ -13,16 +13,19 @@ class Employee {
         return this.name
     }
 
-    getId() {
+    getTitle() {
         return this.title
     }
 
     getEmail(){
         return this.email
     }
-
+    
+    getId() {
+        return this.title
+    }
     getRole() {
-        //return employee
+        return "Employee"
     }
 }
 module.exports = Employee;
