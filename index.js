@@ -88,9 +88,27 @@ function employeeDetails(role){
     inquirer
     .prompt(questions).then(
         answers => {
-        console.log(answers)
+        createEmployee(answers, role)
     });
     //console.log data
+}
+
+function createEmployee(answers, role){
+    //if engineer create new engineer and push to team object
+    if(role === "Engineer"){
+        let engineer = new Engineer(answers.name,answers.title,answers.email,answers.github);
+        team.engineers.push(engineer);
+    }
+    //if intern create new intern and push to team object
+    else if(role === "Intern"){
+        let intern = new Intern(answers.name,answers.title,answers.email,answers.school);
+        team.interns.push(intern);
+    }
+    //if manager create new manager and push to team object
+    else if(role === "Manager"){
+        let manager = new Manager(answers.name,answers.title,answers.email,answers.officeNumber);
+        team.managers.push(manager);
+    }
 }
 function renderHTML(){
     console.log("yo we full, no more hiring")
