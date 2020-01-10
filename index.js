@@ -35,44 +35,62 @@ function newRole(){
         }
         //else function employeeDetails with the role
         else{
-            
+            //console.log(response.Role)
             employeeDetails(response.Role);
         }
     })
 }
 function employeeDetails(role){
     //make questions object
-    
-    //if Engineer push engineer question to questions object
-    //if Intern push intern question to questions object
-    //if Manager push manager question to questions object
-    inquirer.prompt([
-        {
-            type: 'prompt',
-            message:`What's the ${role}'s name?`,
-            name:'name',
-        },
-        {
-            type: 'prompt',
-            message:"What's the employee's title",
-            name:'name',
-        },
-        {
-            type: 'prompt',
-            message:"What's the employee's name",
-            name:'name',
-        }
-    ]).then(response => {
-//ask for name, title, email with inquirer
+        var questions = [
+            {
+                type: 'prompt',
+                message:`What's the ${role}'s name?`,
+                name:'name',
+            },
+            {
+                type: 'prompt',
+                message:`What's the ${role}'s title?`,
+                name:'title',
+            },
+            {
+                type: 'prompt',
+                message:`What's the ${role}'s email?`,
+                name:'email',
+            }
+        ];
 
-//if Engineer role
-    //ask for github
-//if Intern 
-    //ask for school
-//if Manager
-    //ask for office number
-//take all responses and role
-//console.log data
+ //if Engineer push engineer question to questions object   
+        if(role === "Engineer"){
+            questions.push({
+                type: 'prompt',
+                message:`What's the ${role}'s github username?`,
+                name:'github',
+            });
+        }
+    //if Intern push intern question to questions object
+        else if(role === "Intern"){
+            questions.push({
+                type: 'prompt',
+                message:`Which school does the ${role} go to?`,
+                name:'school',
+            });
+        }
+    //if Manager push manager question to questions object
+        else if(role === "Intern"){
+            questions.push({
+                type: 'prompt',
+                message:`What's the ${role}'s Office Number?`,
+                name:'officeNumber',
+            });
+    }
+    //run inquire and feed it the questions object
+    inquirer
+    .prompt(questions).then(
+        answers => {
+        console.log(answers)
+    });
+    //console.log data
 }
 function renderHTML(){
     console.log("yo we full, no more hiring")
