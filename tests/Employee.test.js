@@ -10,7 +10,16 @@ describe("Employee", () => {
         it("should have all 4 keys", () => {
             var employee = new Employee("Sam", "Engineer", "me@me.com");
             expect(employee).toEqual({name:"Sam", title:"Engineer", email:"me@me.com", id: 1});
-        })
+        });
+        //check for id assignment and incrementation
+        it("should increment the id# with each new Employee", () =>{
+            //give 3 employees
+            var e1 = new Employee("Sam", "Engineer","me@me.com")
+            var e2 = new Employee("Vader", "Manager","vader@deathstar.org")
+            var e3 = new Employee("Kylo", "Intern","kylo@deathstar.org")
+            //expect employee 3 to be id #3
+            expect(e3.id).toEqual(e1.id+2)
+        });
     })
 })
 
@@ -22,39 +31,27 @@ describe("Employee", () => {
                 var employee = new Employee("Sam", "Engineer","me@me.com");
                 //i want the getName return to be "Sam"
                 expect(employee.getName()).toEqual("Sam");
-            })
-            it("should increment the id# with each new Employee", () =>{
-                //give 3 employees
-                var e1 = new Employee("Sam", "Engineer","me@me.com")
-                var e2 = new Employee("Vader", "Manager","vader@deathstar.org")
-                var e3 = new Employee("Kylo", "Intern","kylo@deathstar.org")
-                //expect employee 1 to be #0
-                expect(e1.id).toEqual(0)
-                //expect employee 2 to be #1
-                expect(e2.id).toEqual(1)
-                //expect employee 3 to be #2
-                expect(e3.id).toEqual(2)
-            })
+            });
+            
         })
         //getTitle()
-        describe("getName", ()=>{
-            it("should return name value", () => {
+        describe("getTitle", ()=>{
+            it("should return title value", () => {
                 var employee = new Employee("Sam", "Engineer","me@me.com");
-                expect()
+                expect(employee.getTitle()).toEqual("Engineer");
             })
         })
-        //getId()
-        describe("getName", ()=>{
-            it("should return name value", () => {
+        //getEmail
+        describe("getEmail", ()=>{
+            it("should return email value", () => {
                 var employee = new Employee("Sam", "Engineer","me@me.com");
-                expect()
-            })
-        })
-        //getEmail()
-        describe("getName", ()=>{
-            it("should return name value", () => {
-                var employee = new Employee("Sam", "Engineer","me@me.com");
-                expect()
+                expect(employee.getEmail()).toEqual("me@me.com")
             })
         })
         //getRole()
+        describe("getRole", () => {
+            it("should return Employee string", () => {
+                var employee = new Employee("Sam", "Engineer","me@me.com");
+                expect(employee.getRole()).toEqual("Employee");
+            })
+        })
