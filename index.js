@@ -112,6 +112,7 @@ function createEmployee(answers, role){
     newRole();
 }
 function renderHTML(){
+    var teamHTML = "";
     //console.log("yo we full, no more hiring")
     //make sure we have team members in our team object
     if(team.engineers.length === 0){
@@ -139,8 +140,27 @@ function renderHTML(){
 
     }
     //write to the file in html
-    fs.writeFile("./Teams/" + team + ".html", html,(err) =>{
+    fs.writeFile("./Teams/team.html", teamHTML,(err) =>{
         if (err) throw err;
         console.log("your tteam has successfully generated");
     });
+
+}
+function getHTML(){
+    fs.readFile("templates/main.html"),"utf-8",( err, template) => {
+        if (err) throw err;
+        mainHTML = template
+    }
+    fs.readFile("templates/engineer.html"),"utf-8",( err,template) => {
+        if (err) throw err;
+        engineerHTML = template
+    }
+    fs.readFile("templates/intern.html"),"utf-8",( err,template) => {
+        if (err) throw err;
+        internHTML = template
+    }
+    fs.readFile("templates/manager.html"),"utf-8",( err,template) => {
+        if (err) throw err;
+        managerHTML = template
+    }
 }
