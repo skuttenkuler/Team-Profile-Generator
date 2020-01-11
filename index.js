@@ -109,7 +109,38 @@ function createEmployee(answers, role){
         let manager = new Manager(answers.name,answers.title,answers.email,answers.officeNumber);
         team.managers.push(manager);
     }
+    newRole();
 }
 function renderHTML(){
-    console.log("yo we full, no more hiring")
+    //console.log("yo we full, no more hiring")
+    //make sure we have team members in our team object
+    if(team.engineers.length === 0){
+        alert("need at least one Engineer")
+        return newRole();
+    }
+    if(team.interns.length === 0){
+        alert("need at least one Engineer")
+        return newRole();
+    }
+    if(team.managers.length === 0){
+        alert("need at least one Engineer")
+        return newRole();
+    }
+    //for loop to go through team.engineers and for each item inject info to template
+    for(engineer in team.engineers){
+
+    }
+    //for loop to go through team.interns and for each item inject info to template
+    for(intern in team.interns){
+
+    }
+    //for loop to go through team.managers and for each item inject info to template
+    for(manager in team.managers){
+
+    }
+    //write to the file in html
+    fs.writeFile("./Teams/" + team + ".html", html,(err) =>{
+        if (err) throw err;
+        console.log("your tteam has successfully generated");
+    });
 }
